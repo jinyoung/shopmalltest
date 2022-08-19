@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 import shoppingmall.OrderApplication;
+import shoppingmall.domain.OrderCancelled;
 import shoppingmall.domain.OrderPlaced;
 
 @Entity
@@ -24,6 +25,12 @@ public class Order {
     public void onPostPersist() {
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
+    }
+
+    @PreRemove
+    public void onPreRemove() {
+        OrderCancelled orderCancelled = new OrderCancelled(this);
+        orderCancelled.publishAfterCommit();
     }
 
     public static OrderRepository repository() {
