@@ -30,7 +30,7 @@ public class Delivery {
         /** Example 1:  new item*/ 
         Delivery delivery = new Delivery();
         delivery.setOrderId(orderPlaced.getId());
-        
+
         repository().save(delivery);
 
         
@@ -55,16 +55,16 @@ public class Delivery {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process*/
         
-        repository().findById(orderCancelled.get???()).ifPresent(delivery->{
+        repository().findByOrderId(orderCancelled.getId()).forEach(delivery->{
             
-            delivery // do something
-            repository().save(delivery);
+             // do something
+            repository().delete(delivery);
 
 
          });
-        */
+        
 
     }
 }
