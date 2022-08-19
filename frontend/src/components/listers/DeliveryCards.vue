@@ -69,6 +69,7 @@
             
             me.newValue = {
                 'address': '',
+                'orderId': 0,
             }
         },
         methods:{

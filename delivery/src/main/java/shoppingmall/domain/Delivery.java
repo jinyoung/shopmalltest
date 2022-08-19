@@ -17,6 +17,8 @@ public class Delivery {
 
     private String address;
 
+    private Long orderId;
+
     public static DeliveryRepository repository() {
         DeliveryRepository deliveryRepository = DeliveryApplication.applicationContext.getBean(
             DeliveryRepository.class
