@@ -29,6 +29,7 @@ public class Delivery {
     public static void startDelivery(OrderPlaced orderPlaced) {
         /** Example 1:  new item*/ 
         Delivery delivery = new Delivery();
+        delivery.setOrderId(orderPlaced.getId());
         
         repository().save(delivery);
 
